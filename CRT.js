@@ -15,8 +15,6 @@ class electron {
         this.q = -1.602e-19;  // C
         this.m = 9.1e-31;  // kg
         this.execution = 0;
-        this.edge_x = width - 10;
-        this.edge_y = height - 10;
     }
 
     draw() {
@@ -28,11 +26,11 @@ class electron {
         let vX = this.v * cos(this.alpha);
         let vY = this.v * sin(this.alpha);
         this.pos.x += vX * dt;
-        if(this.pos.x > this.edge_x - 20 || this.pos.x < 0){
+        if(this.pos.x > width - 10 || this.pos.x < 0){
             this.execution = 1;
         }
         this.pos.y -= vY *dt;
-        if(this.pos.y < 0 || this.pos.y > this.edge_y){
+        if(this.pos.y < 0 || this.pos.y > height){
             this.execution = 1;
         }
         let a = this.q * E / this.m;
@@ -51,9 +49,9 @@ function setup() {
 
 function update_Canvas() {
     es.length = 0;
-    let newwidth = document.getElementById("width-input").value;
-    let newheight = document.getElementById("height-input").value;
-    canvas = createCanvas(newwidth, newheight);
+    width = document.getElementById("width-input").value;
+    height = document.getElementById("height-input").value;
+    canvas = createCanvas(width, height);
 }
 
 
