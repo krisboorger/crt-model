@@ -21,7 +21,7 @@ jobs:
       with:
         context: .
         tags: krisboorger/crt-model
-        outputs: type=docker,dest=/tmp/crt-model.tar
+        outputs: type=docker,dest=/tmp/crt-model_image.tar
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
