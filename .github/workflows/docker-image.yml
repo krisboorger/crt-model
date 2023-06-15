@@ -26,7 +26,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: crt-model_image
-        path: /tmp/crt-model.tar
+        path: /tmp/crt-model_image.tar
       
   push:
     needs: build
