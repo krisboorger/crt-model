@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab-stud.elka.pw.edu.pl/dsidorcz/fo-model-crt"
+    "url": "https://github.com/krisboorger/crt-model"
   },
   "dependencies": {
     "express": "^4.18.2",
