@@ -14,8 +14,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag krisboorger/crt-model:$(date +%s)
+    - name: Build and export
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        tags: krisboorger/crt-model:$(date +%s)
+        outputs: type=docker,dest=/tmp/crt-model.tar
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: crt-model_image
+        path: /tmp/crt-model.tar
       
   push:
     needs: build
@@ -23,5 +32,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: crt-model_image
+        path: /tmp
+    - name: Load image
+      run: docker load --input /tmp/crt-model_image.tar
     - name: Push the Docker image to registry
       run: docker push krisboorger/crt-model
