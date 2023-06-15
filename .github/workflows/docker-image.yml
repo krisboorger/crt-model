@@ -18,7 +18,7 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        tags: krisboorger/crt-model:$(date +%s)
+        tags: krisboorger/crt-model
         outputs: type=docker,dest=/tmp/crt-model.tar
     - name: Upload artifact
       uses: actions/upload-artifact@v3
