@@ -1,0 +1,14 @@
+.container {
+    position: relative;
+    left: 10px;
+}
+.sliders {
+    position: relative;
+    left: 20%;
+    top: -50px;
+}
+.js {
+    position: relative;
+    left: 7%;
+    top: -40px;
+}

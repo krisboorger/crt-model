@@ -1,15 +1,16 @@
-var E = 0; // V/m
-let dt = 0.01;
+let E = 0; // V/m
+const dt = 0.01;
 let es = [];
 let width = 1200;
 let height = 800;
-var canvas;
-var updateCanvas;
-var change_E;
-var actual_E;
+let canvas;
+let updateCanvas;
+let change_E;
+let actual_E;
+const pi = Math.pi;
 
 class electron {
-    constructor(posX, posY, R) {
+    constructor(posX, posY, R=NaN) {
         this.pos = {x: posX, y: posY};
         this.v = 0; // prędkość [m/s]
         this.alpha = 0; // kąt odchylenia od osi x
@@ -37,11 +38,16 @@ class electron {
         }
         let a = this.q * E / this.m;
         vX += a * dt;
-        if (vX != 0) {
+
+        // wyznaczanie w którą stronę elektron jest skierowany (tzn się porusza) i obliczenie wartości v
+        if (vX > 0) {
             this.alpha = atan(vY / vX);
         }
+        else if (vX < 0) {
+            this.alpha = atan(vY / vX) + pi;
+        }
         else {
-            this.alpha = 0;
+            this.alpha = vY>0?pi/2: vY<0?-pi/2:0;
         }
         this.v = (vX**2 + vY**2)**(1/2);
     }
@@ -50,6 +56,7 @@ class electron {
 
 function setup() {
     canvas = createCanvas(width, height);
+    canvas.parent('js');
     updateCanvas = document.getElementById('update_Canvas');
     updateCanvas.addEventListener('click', update_Canvas);
     change_E = document.getElementById('Eslider');
@@ -68,6 +75,7 @@ function update_Canvas() {
     width = document.getElementById("width-input").value;
     height = document.getElementById("height-input").value;
     canvas = createCanvas(width, height);
+    canvas.parent('js');
 }
 
 

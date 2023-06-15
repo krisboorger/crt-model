@@ -4,25 +4,28 @@
   <meta charset="UTF-8">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
-  <style>
-  </style>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <h1>Model CRT</h1>
   <div id="container" class="container">
+    <h2> Parametry</h2>
     <label for="width-input">Szerokość (px):</label>
     <input type="number" id="width-input" min="0">
     <br>
     <label for="height-input">Wysokość (px):</label>
     <input type="number" id="height-input" min="0">
     <br>
-    <button id="update_Canvas">Zaktualizuj Canvas</button>
+    <button id="update_Canvas">Zaktualizuj obraz</button>
   </div>
-  <div>
+  <div id="slider" class="sliders">
     <input type="range" min="0" max="2e-9" step="1e-11" value="0" id="Eslider">
     <label> E=</label>
     <span id="E_value">0</span>
   </div>
-  <script src="CRT.js"></script>
+  <div id="js" class="js">
+    <h2>Animacja</h2>
+    <script src="CRT.js"></script>
+  </div>
 </body>
 </html>
