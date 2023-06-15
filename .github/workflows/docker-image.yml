@@ -23,4 +23,4 @@ jobs:
     
     steps:
     - name: Push the Docker image to registry
-      run: docker push $DOCKER_PREFIX/crt-model
+      run: docker push krisboorger/crt-model
