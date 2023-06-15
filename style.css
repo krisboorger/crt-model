@@ -1,4 +1,4 @@
-.container {
+.parameters {
     position: relative;
     left: 10px;
 }
@@ -11,4 +11,9 @@
     position: relative;
     left: 7%;
     top: -40px;
+}
+
+h1 {
+    position: relative;
+    left: 10px;
 }
