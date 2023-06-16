@@ -1,5 +1,5 @@
-let E = 0; // V/m
-let B = 0;
+var E = 0; // V/m
+var B = 0;
 const dt = 0.01;
 let es = [];
 let width = 1200;
@@ -45,8 +45,11 @@ class electron {
             vX += ax * dt;
         }
         else if (this.pos.x < 2/3 * width -5) {
-            let ay = this.q * vX * B / this.m;
+            let a = this.q * vX * B / this.m;
+            let ay = cos(this.alpha) * a;
+            let ax = sin(this.alpha) * a;
             vY -= ay * dt;
+            vX += ax * dt;
         }
 
         // wyznaczanie w którą stronę elektron jest skierowany (tzn się porusza) i obliczenie wartości v
@@ -80,7 +83,7 @@ function setup() {
 }
 
 function update_E() {
-    E = -change_E.value;
+    E = change_E.value;
     actual_E.textContent = E;
 }
 
@@ -163,5 +166,4 @@ function draw() {
     draw_electric_field();
     update_all();
     draw_tube();
-    console.log(es.length);
 }
