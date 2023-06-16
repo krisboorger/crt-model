@@ -1,5 +1,5 @@
 let E = 0; // V/m
-let B = 3e-11;
+let B = 0;
 const dt = 0.01;
 let es = [];
 let width = 1200;
