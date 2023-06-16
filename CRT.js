@@ -47,7 +47,7 @@ class electron {
         else if (this.pos.x < 2/3 * width -5) {
             let a = this.q * vX * B / this.m;
             let ay = cos(this.alpha) * a;
-            let ax = sin(this.alpha) * a;
+            let ax = -sin(this.alpha) * a;
             vY -= ay * dt;
             vX += ax * dt;
         }
