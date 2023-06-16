@@ -146,9 +146,21 @@ function draw_magnetic_field() {
 }
 
 
+function draw_electric_field() {
+  stroke(0, 0, 255, 100);
+  strokeWeight(2);
+  line(70, height/2, width/2, height/2);
+
+  fill(0, 0, 255, 100);
+  noStroke();
+  triangle(40, height/2, 70, height/2-10, 70, height/2+10);
+}
+
+
 function draw() {
     background(220);
     draw_magnetic_field();
+    draw_electric_field();
     update_all();
     draw_tube();
     console.log(es.length);
